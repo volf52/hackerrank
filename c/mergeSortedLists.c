@@ -9,11 +9,6 @@ struct SinglyLinkedListNode {
     SinglyLinkedListNode* next;
 };
 
-struct SinglyLinkedList {
-    SinglyLinkedListNode* head;
-    SinglyLinkedListNode* tail;
-};
-
 SinglyLinkedListNode* createNode(int);
 void printList(SinglyLinkedListNode* node, char* sep, FILE* fptr);
 SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2);
