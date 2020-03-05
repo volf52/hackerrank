@@ -11,7 +11,7 @@ struct SinglyLinkedListNode {
 SinglyLinkedListNode* createNode(int);
 void printCycleList(SinglyLinkedListNode* node, char* sep, FILE* fptr, int n1, int n2);
 SinglyLinkedListNode* createCycleList(int* arrOne, int n1, int* arr2, int n2);
-int findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2);
+int cyclePresent(SinglyLinkedListNode* head);
 
 void print(SinglyLinkedListNode* node, int n1, int n2)
 {
@@ -22,11 +22,36 @@ void print(SinglyLinkedListNode* node, int n1, int n2)
 int main()
 {
     SinglyLinkedListNode* head;
+    int res;
     int arr1[] = { 1, 2, 3 };
     int arr2[] = { 4, 5, 6 };
 
     head = createCycleList(arr1, 3, arr2, 3);
     print(head, 3, 3);
+
+    res = cyclePresent(head);
+    printf("Cycle present: %d\n", res);
+
+    return 0;
+}
+
+int cyclePresent(SinglyLinkedListNode* head)
+{
+    SinglyLinkedListNode *slow, *fast;
+
+    if (!head)
+        return 0;
+
+    fast = head;
+    slow = head;
+
+    while (fast && slow && fast->next) {
+        fast = fast->next->next;
+        slow = slow->next;
+
+        if (fast == slow)
+            return 1;
+    }
 
     return 0;
 }
