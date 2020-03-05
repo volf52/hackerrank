@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 typedef struct SinglyLinkedListNode SinglyLinkedListNode;
-typedef struct SinglyLinkedList SinglyLinkedList;
 
 struct SinglyLinkedListNode {
     int data;
